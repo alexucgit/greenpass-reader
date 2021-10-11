@@ -1,0 +1,14 @@
+<div>
+  <div>
+    <input type="file" (change)="createFormData($event)">
+  </div>
+  <button (click)="upload()">Upload</button>
+</div>
+<zxing-scanner (scanComplete)="ciao($event)"></zxing-scanner>
+
+<div *ngIf="risultato">
+  <span>Nome: <b>{{risultato._payload.nam.gnt}}</b></span><br>
+  <span>Cognome: <b>{{risultato._payload.nam.fnt}}</b></span><br>
+  <span>Data: <b>{{risultato._payload.dob}}</b></span>
+</div>
+<router-outlet></router-outlet>
