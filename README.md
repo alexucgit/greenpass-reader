@@ -32,7 +32,9 @@ Per comodità viene visualizzato solo nome, cognome e data di nascita del cittad
 E' poossibile aggiungere informazioni sulla vaccinazione (luogo, data, numero dosi...)
 ## License
 
+## License
+
 MIT
 **Free Software, Hell Yeah!**
-
 Ogni contributo esterno è utile!
+###### Grazie a [Guido Porcaro](https://github.com/elgorditosalsero) per le dritte
