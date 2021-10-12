@@ -12,6 +12,8 @@ Per funzionare necessita del progetto [gp-node](https://github.com/alexucgit/gp-
 
 ## Installazione
 
+Modificare il file environment con l'ip della macchina che ospita l'applicazione node, incluso di porta.
+
 Per avviare il progetto è necessario modificare il file package.json sostituendo a 192.168.1.113 l'ip della macchina sulla quale si esegue la web app.
 Il plugin della fotocamera, per ragioni di sicurezza, lavora in SSL.
 A server avviato raggiungere l'applicazione all'indirizzo https://TUOIP:4200
