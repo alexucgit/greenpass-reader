@@ -30,7 +30,6 @@ A server avviato raggiungere l'applicazione all'indirizzo https://xxx.xxx.xxx.xx
 Potete scaricare i QRcode di Green Pass demo da [qui](https://github.com/ministero-salute/dcc-utils/tree/master/test/test_data) oppure potete provare col vostro.
 Per comodità viene visualizzato solo nome, cognome e data di nascita del cittadino.
 E' poossibile aggiungere informazioni sulla vaccinazione (luogo, data, numero dosi...)
-## License
 
 ## License
 
