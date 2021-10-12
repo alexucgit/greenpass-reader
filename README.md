@@ -16,14 +16,14 @@ Modificare il file environment con l'ip della macchina che ospita l'applicazione
 
 Per avviare il progetto è necessario modificare il file package.json sostituendo a 192.168.1.113 l'ip della macchina sulla quale si esegue la web app.
 Il plugin della fotocamera, per ragioni di sicurezza, lavora in SSL.
-A server avviato raggiungere l'applicazione all'indirizzo https://TUOIP:4200
-
 
 ```sh
 cd greenpass
 npm i
 ng serve --host xxx.xxx.xxx.xxx --ssl
 ```
+A server avviato raggiungere l'applicazione all'indirizzo https://xxx.xxx.xxx.xxx:4200
+
 
 ## Immagini di test
 
