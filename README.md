@@ -8,6 +8,7 @@ Progetto generato con [Angular CLI](https://github.com/angular/angular-cli) vers
 ## Prima di iniziare
 
 Nessun dato viene salvato!
+Per funzionare necessita del progetto [gp-node](https://github.com/alexucgit/gp-node) installato e avviato.
 
 ## Installazione
 
