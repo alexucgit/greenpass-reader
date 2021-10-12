@@ -1,14 +1,32 @@
-<div>
-  <div>
-    <input type="file" (change)="createFormData($event)">
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container">
+    <span class="navbar-brand">Verifica GreenPass
+    </span>
   </div>
-  <button (click)="upload()">Upload</button>
-</div>
-<zxing-scanner (scanComplete)="ciao($event)"></zxing-scanner>
+</nav>
 
-<div *ngIf="risultato">
-  <span>Nome: <b>{{risultato._payload.nam.gnt}}</b></span><br>
-  <span>Cognome: <b>{{risultato._payload.nam.fnt}}</b></span><br>
-  <span>Data: <b>{{risultato._payload.dob}}</b></span>
+<div class="container mt-2">
+  <zxing-scanner *ngIf="scanActive && !error" (scanComplete)="scan($event)"></zxing-scanner>
+
+  <div class="alert alert-danger" *ngIf="error" role="alert">
+    Certificato non valido
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="resultData">
+    <span>Nome: <b>{{resultData._payload.nam.gn}}</b></span><br>
+    <span>Cognome: <b>{{resultData._payload.nam.fn}}</b></span><br>
+    <span>Data: <b>{{resultData._payload.dob | date: 'dd-MM-yyyy'}}</b></span>
+  </div>
+
+  <button type="button" class="btn btn-warning w-100" (click)="reset()" *ngIf="!scanActive || error">Ripeti scansione</button>
+
 </div>
-<router-outlet></router-outlet>
+
+<div class="w-100 p-4 text-center bg-light">
+  <p class="h4"><b>Esercizio didattico</b></p>
+  <span>Libreria node: <a class="h6" href="https://github.com/ministero-salute/dcc-utils"><b>DCC-UTILS (Ministero della Salute)</b></a></span><br>
+  <span>contributo di <a href="https://github.com/elgorditosalsero">elgoritosalsero</a></span><br><br>
+  <span class="text-muted"><b>Alessandro Nestola</b></span><br>
+  <a href="http://github.com/alexucgit" class="text-primary">GitHub</a> | <a href="https://www.linkedin.com/in/alessandronestola/" class="text-primary">LinkedIn</a> | <a href="https://www.facebook.com/ale.nestola" class="text-primary">FB</a>
+</div>
+

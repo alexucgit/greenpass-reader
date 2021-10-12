@@ -1,4 +1,4 @@
-export interface V {
+export interface Vaccine {
   dn: number;
   ma: string;
   vp: string;
@@ -11,21 +11,46 @@ export interface V {
   tg: string;
 }
 
-export interface Nam {
-  fnt: string;
-  fn: string;
-  gnt: string;
-  gn: string;
+export interface Test {
+  tg: string;
+  tt: string;
+  nm: string;
+  ma: string;
+  sc: string;
+  dr: string;
+  tr: string;
+  tc: string;
+  co: string;
+  is: string;
+  ci: string;
 }
 
 export interface Payload {
-  v: V[];
-  nam: Nam;
-  ver: string;
   dob: string;
+  nam: {
+    fn: string;
+    fnt: string;
+    gn: string;
+    gnt: string;
+  };
+  r?: Recovery[];
+  t?: Test[];
+  v?: Vaccine[];
+  ver: string;
+}
+
+export interface Recovery {
+  tg: string;
+  fr: string;
+  co: string;
+  is: string;
+  df: string;
+  du: string;
+  ci: string;
 }
 
 export interface ResponseGP {
+  status: string;
   _raw: string;
   _payload: Payload;
 }

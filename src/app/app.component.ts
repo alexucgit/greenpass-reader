@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import * as url from "url";
-import {GP} from "../model/gp";
-import {ResponseGP} from "../model/responseGP";
+import {Component} from '@angular/core';
+import {GP} from '../model/gp';
+import {ResponseGP} from '../model/responseGP';
+import {GpService} from './services/gp.service';
 
 @Component({
   selector: 'app-root',
@@ -10,44 +9,35 @@ import {ResponseGP} from "../model/responseGP";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectedFile: File = null;
-  fd = new FormData();
-  gp: GP;
+  error = false;
+  scanActive = true;
+  resultData: ResponseGP = null;
 
-  risultato: ResponseGP;
+  constructor(private gpService: GpService) {}
 
-  constructor(private http: HttpClient) {
-  }
-
-  createFormData(event): any {
-    this.selectedFile = event.target.files[0] as File;
-    this.fd.append('file', this.selectedFile, this.selectedFile.name);
-  }
-
-  upload(): any {
-    const param: HttpParams = new HttpParams();
-    param.append('Authorization', '*');
-    this.http.post<ResponseGP>('http://localhost:3004', this.fd)
-    .subscribe(result => {
-      this.risultato = result;
-    });
-  }
-
-  ciao(e: any): any {
-    if (!e) {
-      return;
+  scan(data: GP): void {
+    this.scanActive = false;
+    if (data && data.text) {
+      this.gpService.getData(data.text)
+      .subscribe(gpObj => {
+        if (gpObj.status === 'error') {
+          this.scanActive = true;
+          this.error = true;
+        } else {
+          this.resultData = gpObj;
+        }
+      }, error => {
+        this.scanActive = true;
+        this.error = true;
+      });
+    } else {
+      this.scanActive = true;
     }
-    const headers = {'Access-Control-Allow-Origin': '*'};
+  }
 
-
-    this.gp = e as GP;
-    const params = new HttpParams().set('stringa', this.gp.text);
-    console.log(this.gp.text.toString());
-    console.log('=====');
-    console.log(encodeURI(this.gp.text));
-    this.http.post<ResponseGP>('http://localhost:3002/', {params})
-    .subscribe(result => {
-      this.risultato = result;
-    });
+  reset(): void {
+    this.scanActive = true;
+    this.error = null;
+    this.resultData = null;
   }
 }
