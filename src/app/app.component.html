@@ -7,7 +7,10 @@
 
 <div class="container mt-2">
   <zxing-scanner *ngIf="scanActive && !error" (scanComplete)="scan($event)"></zxing-scanner>
-  <div class="alert alert-danger" *ngIf="resultData && error" role="alert">
+  <div class="alert" [ngClass]="{
+    'alert-success': resultData.result,
+    'alert-danger': !resultData.result
+  }" *ngIf="resultData" >
     {{resultData.message}}
   </div>
 
@@ -17,22 +20,51 @@
     </div>
   </div>
 
-  <div class="alert alert-success" role="alert" *ngIf="resultData && !error">
+  <div class="alert" [ngClass]="{
+    'alert-success': resultData.result,
+    'alert-danger': !resultData.result
+  }" *ngIf="resultData">
     <span>Nome: <b>{{resultData._payload.nam.gn}}</b></span><br>
     <span>Cognome: <b>{{resultData._payload.nam.fn}}</b></span><br>
     <span>Data di nascita: <b>{{resultData._payload.dob | date: 'dd-MM-yyyy'}}</b></span>
     <hr/>
-    <span>Numero dose: <b>{{resultData._payload.v[0].dn}}</b></span><br>
-    <span>Totale serie di dosi: <b>{{resultData._payload.v[0].sd}}</b></span><br>
-    <span>Titolare dell'autorizzazione all'immissione in commercio: <b>{{resultData._payload.v[0].ma}}</b></span><br>
-    <span>Vaccino o profilassi: <b>{{resultData._payload.v[0].vp}}</b></span><br>
-    <span>Data vaccinazione: <b>{{resultData._payload.v[0].dt | date: 'dd-MM-yyyy'}}</b></span><br>
-    <span>Paese di vaccinazione: <b>{{resultData._payload.v[0].co}}</b></span><br>
-    <span>Identificativo unico certificato: <b>{{resultData._payload.v[0].ci}}</b></span><br>
-    <span>Medicinale vaccino: <b>{{resultData._payload.v[0].mp}}</b></span><br>
-    <span>Emittente del certificato: <b>{{resultData._payload.v[0].is}}</b></span><br>
-    <span>Malattia o agente mirato: <b>{{resultData._payload.v[0].tg}}</b></span><br>
-    <span>Versione schema: <b>{{resultData._payload.ver}}</b></span><br>
+    <div *ngIf="resultData._payload.v">
+      <h2>Vaccino</h2>
+      <span>Dose: <b>{{resultData._payload.v[0].dn}}</b> di <b>{{resultData._payload.v[0].sd}}</b></span><br>
+      <span>Titolare dell'autorizzazione all'immissione in commercio: <b>{{resultData._payload.v[0].ma}}</b></span><br>
+      <span>Vaccino o profilassi: <b>{{resultData._payload.v[0].vp}}</b></span><br>
+      <span>Data vaccinazione: <b>{{resultData._payload.v[0].dt | date: 'dd-MM-yyyy'}}</b></span><br>
+      <span>Paese di vaccinazione: <b>{{resultData._payload.v[0].co}}</b></span><br>
+      <span>Identificativo unico certificato: <b>{{resultData._payload.v[0].ci}}</b></span><br>
+      <span>Medicinale vaccino: <b>{{resultData._payload.v[0].mp}}</b></span><br>
+      <span>Emittente del certificato: <b>{{resultData._payload.v[0].is}}</b></span><br>
+      <span>Malattia o agente mirato: <b>{{resultData._payload.v[0].tg}}</b></span><br>
+      <span>Versione schema: <b>{{resultData._payload.ver}}</b></span>
+    </div>
+
+    <div *ngIf="resultData._payload.r">
+      <h2>Guarigione</h2>
+      <span>Guarito da: <b>{{resultData._payload.r[0].tg}}</b></span><br>
+      <span>Data positivizzazione: <b>{{resultData._payload.r[0].fr | date: 'dd-MM-yyyy'}}</b></span><br>
+      <span>Emesso in: <b>{{resultData._payload.r[0].co}}</b></span><br>
+      <span>Emittente del certificato: <b>{{resultData._payload.r[0].is}}</b></span><br>
+      <span>Certificato valido dal <b>{{resultData._payload.r[0].df | date: 'dd-MM-yyyy'}}</b> al <b>{{resultData._payload.r[0].du | date: 'dd-MM-yyyy'}}</b></span><br>
+      <span>ID certificato: <b>{{resultData._payload.r[0].ci}}</b></span><br>
+    </div>
+
+    <div *ngIf="resultData._payload.t">
+      <h2>Test</h2>
+      <span>Agente ricercato: <b>{{resultData._payload.t[0].tg}}</b></span><br>
+      <span>Tipo di test: <b>{{resultData._payload.t[0].tt}}</b></span><br>
+      <span>Nome test: <b>{{resultData._payload.t[0].nm}}</b></span><br>
+      <span>ID test: <b>{{resultData._payload.t[0].ma}}</b></span><br>
+      <span>Data prelievo: <b>{{resultData._payload.t[0].sc | date: 'dd/MM/yyyy HH:mm'}}</b></span><br>
+      <span>Risultato: <b>{{resultData._payload.t[0].tr}}</b></span><br>
+      <span>Esecutore: <b>{{resultData._payload.t[0].tc}}</b></span><br>
+      <span>Emesso in: <b>{{resultData._payload.t[0].co}}</b></span><br>
+      <span>Emittente del certificato: <b>{{resultData._payload.t[0].is}}</b></span><br>
+      <span>ID certificato: <b>{{resultData._payload.t[0].ci}}</b></span>
+    </div>
 
   </div>
 

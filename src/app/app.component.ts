@@ -23,7 +23,7 @@ export class AppComponent {
     if (data && data.text) {
       this.gpService.getData(data.text)
       .subscribe(gpObj => {
-        if (gpObj._raw) {
+        if (gpObj.result) {
           this.resultData = gpObj;
           this.scanActive = false;
           this.error = false;
