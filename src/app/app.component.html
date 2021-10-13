@@ -7,18 +7,36 @@
 
 <div class="container mt-2">
   <zxing-scanner *ngIf="scanActive && !error" (scanComplete)="scan($event)"></zxing-scanner>
-
-  <div class="alert alert-danger" *ngIf="error" role="alert">
-    Certificato non valido
+  <div class="alert alert-danger" *ngIf="resultData && error" role="alert">
+    {{resultData.message}}
   </div>
 
-  <div class="alert alert-success" role="alert" *ngIf="resultData">
+  <div class="w-100 text-center mt-2"  *ngIf="loading">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="resultData && !error">
     <span>Nome: <b>{{resultData._payload.nam.gn}}</b></span><br>
     <span>Cognome: <b>{{resultData._payload.nam.fn}}</b></span><br>
-    <span>Data: <b>{{resultData._payload.dob | date: 'dd-MM-yyyy'}}</b></span>
+    <span>Data di nascita: <b>{{resultData._payload.dob | date: 'dd-MM-yyyy'}}</b></span>
+    <hr/>
+    <span>Numero dose: <b>{{resultData._payload.v[0].dn}}</b></span><br>
+    <span>Totale serie di dosi: <b>{{resultData._payload.v[0].sd}}</b></span><br>
+    <span>Titolare dell'autorizzazione all'immissione in commercio: <b>{{resultData._payload.v[0].ma}}</b></span><br>
+    <span>Vaccino o profilassi: <b>{{resultData._payload.v[0].vp}}</b></span><br>
+    <span>Data vaccinazione: <b>{{resultData._payload.v[0].dt | date: 'dd-MM-yyyy'}}</b></span><br>
+    <span>Paese di vaccinazione: <b>{{resultData._payload.v[0].co}}</b></span><br>
+    <span>Identificativo unico certificato: <b>{{resultData._payload.v[0].ci}}</b></span><br>
+    <span>Medicinale vaccino: <b>{{resultData._payload.v[0].mp}}</b></span><br>
+    <span>Emittente del certificato: <b>{{resultData._payload.v[0].is}}</b></span><br>
+    <span>Malattia o agente mirato: <b>{{resultData._payload.v[0].tg}}</b></span><br>
+    <span>Versione schema: <b>{{resultData._payload.ver}}</b></span><br>
+
   </div>
 
-  <button type="button" class="btn btn-warning w-100" (click)="reset()" *ngIf="!scanActive || error">Ripeti scansione</button>
+  <button type="button" class="btn btn-warning w-100" (click)="reset()" *ngIf="(!scanActive || error) && !loading">Ripeti scansione</button>
 
 </div>
 
@@ -28,5 +46,10 @@
   <span>contributo di <a href="https://github.com/elgorditosalsero">elgoritosalsero</a></span><br><br>
   <span class="text-muted"><b>Alessandro Nestola</b></span><br>
   <a href="http://github.com/alexucgit" class="text-primary">GitHub</a> | <a href="https://www.linkedin.com/in/alessandronestola/" class="text-primary">LinkedIn</a> | <a href="https://www.facebook.com/ale.nestola" class="text-primary">FB</a>
-</div>
+  <hr/>
+  <p class="text-center">Questo progetto è open source ❤️|
+    <a href="https://github.com/alexucgit/greenpass-reader">Github Repo</a> <a href="https://github.com/alexucgit">
+      <img alt="GitHub followers" src="https://img.shields.io/github/followers/alexucgit?style=social">
+  </a>
+  </p></div>
 

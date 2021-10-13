@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  nodeServer: 'http://localhost:3002/getGP'
+  nodeServer: 'http://localhost:3002/'
 };
 
 /*

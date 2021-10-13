@@ -50,6 +50,8 @@ export interface Recovery {
 }
 
 export interface ResponseGP {
+  result: string;
+  message: string;
   status: string;
   _raw: string;
   _payload: Payload;
