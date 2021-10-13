@@ -30,7 +30,15 @@ A server avviato raggiungere l'applicazione all'indirizzo https:/localhost:4200
 
 ## Immagini di test
 
-Potete scaricare i QRcode di Green Pass demo da [qui](https://github.com/ministero-salute/dcc-utils/tree/master/test/test_data) oppure potete provare col vostro.
+Potete scaricare i QRcode di Green Pass e risultati da Test demo da [qui](https://github.com/eu-digital-green-certificates/dgc-testdata/tree/main/IT) oppure potete provare col vostro.
+
+## Interpretazione dei dati
+
+Per l'interpretazione dei dati sono state seguite le indicazioni del [Technical Specifications
+for EU Digital COVID Certificates](https://ec.europa.eu/health/sites/default/files/ehealth/docs/covid-certificate_json_specification_en.pdf)
+
+Gli valuesets usati sono stati presi dal github dell'[European eHealth network - digital covid certificate coordination
+](https://github.com/ehn-dcc-development/ehn-dcc-schema/tree/release/1.3.0/valuesets)
 
 ## License
 
