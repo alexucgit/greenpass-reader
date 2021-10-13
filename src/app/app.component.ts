@@ -14,10 +14,10 @@ export class AppComponent {
   resultData: ResponseGP = null;
   loading = false;
 
-  constructor(private gpService: GpService) {}
+  constructor(private gpService: GpService) {
+  }
 
   scan(data: GP): void {
-
     this.scanActive = false;
     this.loading = true;
     if (data && data.text) {
