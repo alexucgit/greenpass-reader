@@ -3,14 +3,14 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {ResponseGP} from '../../model/responseGP';
-import * as country from '../../assets/value-sets/country-2-codes';
-import * as diseaseAgent from '../../assets/value-sets/disease-agent-targeted';
-import * as testManf from '../../assets/value-sets/test-manf';
-import * as testResult from '../../assets/value-sets/test-result';
-import * as testType from '../../assets/value-sets/test-type';
-import * as vaccineMahManf from '../../assets/value-sets/vaccine-mah-manf';
-import * as vaccineMedicinalProduct from '../../assets/value-sets/vaccine-medicinal-product';
-import * as vaccineProphylaxis from '../../assets/value-sets/vaccine-prophylaxis';
+import * as country from '../../value-sets/country-2-codes';
+import * as diseaseAgent from '../../value-sets/disease-agent-targeted';
+import * as testManf from '../../value-sets/test-manf';
+import * as testResult from '../../value-sets/test-result';
+import * as testType from '../../value-sets/test-type';
+import * as vaccineMahManf from '../../value-sets/vaccine-mah-manf';
+import * as vaccineMedicinalProduct from '../../value-sets/vaccine-medicinal-product';
+import * as vaccineProphylaxis from '../../value-sets/vaccine-prophylaxis';
 
 
 @Injectable({
