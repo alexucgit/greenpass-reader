@@ -1,27 +1,39 @@
-# Greenpass
+# Verifica GreenPass APP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 
-## Development server
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Progetto generato con [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 
-## Code scaffolding
+## Prima di iniziare
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Nessun dato viene salvato!
+Per funzionare necessita del progetto [gp-node](https://github.com/alexucgit/gp-node) installato e avviato.
 
-## Build
+## Installazione
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Modificare il file environment con l'ip della macchina che ospita l'applicazione node, incluso di porta.
 
-## Running unit tests
+Per avviare il progetto è necessario modificare il file package.json sostituendo a 192.168.1.113 l'ip della macchina sulla quale si esegue la web app.
+Il plugin della fotocamera, per ragioni di sicurezza, lavora in SSL.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+cd greenpass
+npm i
+ng serve --host xxx.xxx.xxx.xxx --ssl
+```
+A server avviato raggiungere l'applicazione all'indirizzo https://xxx.xxx.xxx.xxx:4200
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Immagini di test
 
-## Further help
+Potete scaricare i QRcode di Green Pass demo da [qui](https://github.com/ministero-salute/dcc-utils/tree/master/test/test_data) oppure potete provare col vostro.
+Per comodità viene visualizzato solo nome, cognome e data di nascita del cittadino.
+E' poossibile aggiungere informazioni sulla vaccinazione (luogo, data, numero dosi...)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## License
+
+MIT
+**Free Software, Hell Yeah!**
+Ogni contributo esterno è utile!
+###### Grazie a [Guido Porcaro](https://github.com/elgorditosalsero) per le dritte
