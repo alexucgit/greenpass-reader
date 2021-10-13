@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  nodeServer: 'http://XXXXXXXXXXX:3002/getGP'
+  nodeServer: 'http://XXXXXXXXXXX:3002/'
 };
