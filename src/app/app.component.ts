@@ -34,7 +34,6 @@ export class AppComponent {
             this.loading = false;
         }
       }, error => {
-        console.log(error);
         this.resultData = error;
         this.scanActive = true;
         this.error = true;
