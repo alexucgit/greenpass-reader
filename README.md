@@ -12,17 +12,20 @@ Per funzionare necessita del progetto [gp-node](https://github.com/alexucgit/gp-
 
 ## Installazione
 
-Modificare il file environment con l'ip della macchina che ospita l'applicazione node, incluso di porta.
+Modificare il file environment con l'ip della macchina che ospita l'applicazione node, incluso di porta (default http://localhost:3002).
 
-Per avviare il progetto è necessario modificare il file package.json sostituendo a 192.168.1.113 l'ip della macchina sulla quale si esegue la web app.
-Il plugin della fotocamera, per ragioni di sicurezza, lavora in SSL.
+Per avviare il progetto è necessario modificare il file package.json aggiungendo --ssl al "serve" perchè il plugin della fotocamera, per ragioni di sicurezza, lavora in SSL.
 
 ```sh
 cd greenpass
 npm i
-ng serve --host xxx.xxx.xxx.xxx --ssl
+ng serve
 ```
-A server avviato raggiungere l'applicazione all'indirizzo https://xxx.xxx.xxx.xxx:4200
+se non si è modificato il package.json, dopo i primi due comandi eseguire
+```sh
+ng serve --ssl
+```
+A server avviato raggiungere l'applicazione all'indirizzo https:/localhost:4200
 
 
 ## Immagini di test
