@@ -25,7 +25,7 @@ se non si è modificato il package.json, dopo i primi due comandi eseguire
 ```sh
 ng serve --ssl
 ```
-A server avviato raggiungere l'applicazione all'indirizzo https:/localhost:4200
+A server avviato raggiungere l'applicazione all'indirizzo https://localhost:4200
 
 
 ## Immagini di test
