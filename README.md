@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Progetto generato con [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
+### [VISUALIZZA LA DEMO](https://greenpass-reader.vercel.app)
 
 ## Prima di iniziare
 
