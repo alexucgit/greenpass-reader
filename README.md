@@ -13,7 +13,7 @@ Per funzionare necessita del progetto [gp-node](https://github.com/alexucgit/gp-
 
 ## Installazione
 
-Modificare il file environment con l'url della del server node, incluso di porta (es. nodeServer:'http://localhost:3002').
+Modificare il file environment con l'url del server node, incluso di porta (es. nodeServer:'http://localhost:3002').
 
 Per avviare il progetto è necessario modificare il file package.json aggiungendo --ssl al "serve" perchè il plugin della fotocamera, per ragioni di sicurezza, lavora in SSL.
 
