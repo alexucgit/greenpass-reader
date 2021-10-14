@@ -9,11 +9,11 @@ Progetto generato con [Angular CLI](https://github.com/angular/angular-cli) vers
 ## Prima di iniziare
 
 Nessun dato viene salvato!
-Per funzionare necessita del progetto [gp-node](https://github.com/alexucgit/gp-node) installato e avviato.
+Per funzionare necessita del progetto [gp-node](https://github.com/alexucgit/gp-node) installato e avviato oppure lasciate il file environment così com'è per la modalità dev.
 
 ## Installazione
 
-Modificare il file environment con l'ip della macchina che ospita l'applicazione node, incluso di porta (default http://localhost:3002).
+Modificare il file environment con l'url della del server node, incluso di porta (es. nodeServer:'http://localhost:3002').
 
 Per avviare il progetto è necessario modificare il file package.json aggiungendo --ssl al "serve" perchè il plugin della fotocamera, per ragioni di sicurezza, lavora in SSL.
 
