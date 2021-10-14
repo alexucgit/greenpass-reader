@@ -17,7 +17,8 @@ Modificare il file environment con l'ip della macchina che ospita l'applicazione
 Per avviare il progetto è necessario modificare il file package.json aggiungendo --ssl al "serve" perchè il plugin della fotocamera, per ragioni di sicurezza, lavora in SSL.
 
 ```sh
-cd greenpass
+git clone https://github.com/alexucgit/greenpass-reader.git
+cd greenpass-reader
 npm i
 ng serve
 ```
