@@ -2,9 +2,10 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// nodeServer: 'http://localhost:3002'
+
 export const environment = {
   production: false,
-  // nodeServer: 'http://localhost:3002'
   nodeServer: 'https://green-pass-node.herokuapp.com' // only for demo mode
 };
 
