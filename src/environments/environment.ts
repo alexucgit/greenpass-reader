@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  nodeServer: 'http://localhost:3002/'
+  // nodeServer: 'http://localhost:3002'
+  nodeServer: 'https://green-pass-node.herokuapp.com' // only for demo mode
 };
 
 /*
